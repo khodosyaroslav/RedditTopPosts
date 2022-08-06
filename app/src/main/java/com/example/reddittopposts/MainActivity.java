@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.reddittopposts.models.Entity;
 import com.example.reddittopposts.repository.RedditService;
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                // TODO
+                Toast.makeText(MainActivity.this, "Failed to load posts", Toast.LENGTH_SHORT).show();
             }
         });
     }
