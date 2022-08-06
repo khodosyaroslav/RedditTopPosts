@@ -16,6 +16,10 @@
         android:theme="@style/Theme.RedditTopPosts"
         tools:targetApi="31">
         <activity
+            android:name=".ui.FullImageActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

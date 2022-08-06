@@ -1,6 +1,7 @@
 package com.example.reddittopposts;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.reddittopposts.models.Entity;
+import com.example.reddittopposts.ui.FullImageActivity;
 
 import java.util.List;
 
@@ -37,13 +39,22 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Entity entity = entities.get(position);
 
-        Glide.with(activity).load(entity.getThumbnail())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(holder.imageView);
+        if(!entity.getThumbnail().equals("default")){
+            Glide.with(activity).load(entity.getThumbnail())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(holder.imageView);
+            holder.imageView.setOnClickListener(view -> {
+                Intent i = new Intent(view.getContext(), FullImageActivity.class);
+                i.putExtra("urlImage", entity.getThumbnail());
+                view.getContext().startActivity(i);
+            });
+        } else {
+            holder.imageView.setVisibility(View.GONE);
+        }
         holder.titleView.setText(entity.getTitle());
         holder.authorView.setText(entity.getAuthor());
         holder.hoursAgoView.setText(entity.getCreated());
-        holder.commentsAgoView.setText(entity.getComments() + " comments");
+        holder.commentsAgoView.setText(String.valueOf(entity.getComments()));
     }
 
     @Override
@@ -69,4 +80,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             imageView = itemView.findViewById(R.id.post_thumbnail);
         }
     }
+
+
 }
