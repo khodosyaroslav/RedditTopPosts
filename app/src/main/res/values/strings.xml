@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RedditTopPosts</string>
+    <string name="post_title">Post Title</string>
+    <string name="username">Username</string>
+    <string name="_8_hours_ago">8 hours ago</string>
+    <string name="_14888">14888</string>
 </resources>
