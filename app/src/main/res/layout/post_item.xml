@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="6dp"
@@ -42,8 +43,11 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginStart="6dp"
-            app:layout_constraintBottom_toBottomOf="@+id/itemPostImage"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemPostImage"
+            app:layout_constraintTop_toBottomOf="@+id/itemPostTitle"
             app:srcCompat="@drawable/ic_user"
             app:tint="@color/gray" />
 
@@ -51,18 +55,24 @@
             android:id="@+id/itemPostUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
             android:text="@string/username"
-            app:layout_constraintBottom_toBottomOf="@+id/itemPostImage"
-            app:layout_constraintStart_toEndOf="@+id/itemPostUserIcon" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemPostUserIcon"
+            app:layout_constraintTop_toBottomOf="@+id/itemPostTitle" />
 
         <ImageView
             android:id="@+id/itemPostCreatedIcon"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginStart="12dp"
-            app:layout_constraintBottom_toBottomOf="@+id/itemPostImage"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemPostUsername"
+            app:layout_constraintTop_toBottomOf="@+id/itemPostTitle"
             app:srcCompat="@drawable/ic_time"
             app:tint="@color/gray" />
 
@@ -70,18 +80,24 @@
             android:id="@+id/itemPostCreated"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
             android:text="@string/_8_hours_ago"
-            app:layout_constraintBottom_toBottomOf="@+id/itemPostImage"
-            app:layout_constraintStart_toEndOf="@+id/itemPostCreatedIcon" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemPostCreatedIcon"
+            app:layout_constraintTop_toBottomOf="@+id/itemPostTitle" />
 
         <ImageView
             android:id="@+id/itemPostCommentsIcon"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginStart="12dp"
-            app:layout_constraintBottom_toBottomOf="@+id/itemPostImage"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemPostCreated"
+            app:layout_constraintTop_toBottomOf="@+id/itemPostTitle"
             app:srcCompat="@drawable/ic_comment"
             app:tint="@color/gray" />
 
@@ -89,10 +105,13 @@
             android:id="@+id/itemPostComments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
             android:text="@string/_14888"
-            app:layout_constraintBottom_toBottomOf="@+id/itemPostImage"
-            app:layout_constraintStart_toEndOf="@+id/itemPostCommentsIcon" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemPostCommentsIcon"
+            app:layout_constraintTop_toBottomOf="@+id/itemPostTitle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
