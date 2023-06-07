@@ -4,13 +4,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import edu.fpm.reddittopposts.R
 import edu.fpm.reddittopposts.data.entities.ChildrenResponse
 import edu.fpm.reddittopposts.databinding.FragmentMainBinding
 import edu.fpm.reddittopposts.databinding.PostItemBinding
+import edu.fpm.reddittopposts.utils.Constants.IMG_URL
 import edu.fpm.reddittopposts.utils.formatCreation
 
 class TopPostsPagingAdapter(val mainBinding: FragmentMainBinding) :
@@ -27,9 +31,15 @@ class TopPostsPagingAdapter(val mainBinding: FragmentMainBinding) :
                 itemPostUsername.text = postItem?.author
                 itemPostCreated.text = formatCreation(postItem?.created!!)
 
-                if(postItem.thumbnail.endsWith(".jpg") || postItem.thumbnail.endsWith(".png")){
-                    Glide.with(mainBinding.root.context).load(postItem.thumbnail).into(itemPostImage)
-                    //setOnClickListener
+                if (postItem.thumbnail.endsWith(".jpg") || postItem.thumbnail.endsWith(".png")) {
+                    Glide.with(mainBinding.root.context).load(postItem.thumbnail)
+                        .into(itemPostImage)
+                    itemPostImage.setOnClickListener { view ->
+                        view.findNavController().navigate(
+                            R.id.action_mainFragment_to_fullImageFragment,
+                            bundleOf(IMG_URL to postItem.thumbnail)
+                        )
+                    }
                 } else {
                     itemPostImage.visibility = View.GONE
                 }
