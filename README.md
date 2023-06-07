@@ -12,7 +12,7 @@ This repository contains the implementation of an Android app that displays the 
 
 The following technologies and libraries were used in the implementation of this app:
 
-- **Android SDK & Kotlin**: The app is developed using the Android Software Development Kit, targeting a minimum SDK version of Android 5.0 (Lollipop). The app is written in the Kotlin programming language, which offers concise and expressive syntax for Android development.
+- **Android SDK & Kotlin**: The app is developed using the Android Software Development Kit, targeting a minimum SDK version of Android 7.0 (Nougat).
 - **Retrofit**: Retrofit is used for network communication, making it easy to retrieve data from the Reddit API.
 - **Glide**: Glide is used for efficient image loading and caching, ensuring a smooth and responsive experience when displaying post images.
 - **RecyclerView & Paging3 library**: The app utilizes RecyclerView to efficiently display the list of posts, providing smooth scrolling and optimized memory usage.
